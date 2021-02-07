@@ -1,3 +1,4 @@
+import cv2
 import os
 from django.db import models
 from PIL import Image
@@ -8,13 +9,13 @@ from .bodyPartsDetection import bodyPartDetection
 
 
 class bodyPartsDetection(models.Model):
-    image = models.ImageField(upload_to='bodyPartsDetection_result_dump')
+    image = models.ImageField(upload_to='result_dump')
 
     def __str__(self):
         return str(self.id)
 
     def save(self, *args, **kwargs):
-        temp_location = "knowYourself/bodyPartsDetection_result_dump/temp.jpg"
+        temp_location = "knowYourself/result_dump/temp.jpg"
 
         # open image
         pil_img = Image.open(self.image)
@@ -31,4 +32,4 @@ class bodyPartsDetection(models.Model):
             pass
 
         # save
-        cv2.imwrite("knowYourself/bodyPartsDetection_result_dump/result.jpg", img)
+        cv2.imwrite("knowYourself/result_dump/result.jpg", img)
