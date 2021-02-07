@@ -7,7 +7,7 @@ from .bodyPartsDetection import bodyPartDetection
 # Create your models here.
 
 
-class bodyDetection(models.Model):
+class bodyPartsDetection(models.Model):
     image = models.ImageField(upload_to='bodyPartsDetection_result_dump')
 
     def __str__(self):
