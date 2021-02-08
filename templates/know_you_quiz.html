@@ -12,13 +12,7 @@
       </script> 
 </head> 
 <body> 
-  
-    {% for i in know_you %} 
-            <div class="col-md-4"> 
-                    {{ know_you.action }} 
-                     <img src="{{ KnowYourSelfForm.image.url }}" class="img-responsive" style="width: 100%; float: left; margin-right: 10px;" /> 
-            </div> 
-    {% endfor %} 
-  
+    <img src="{{ context }}">
+    <p>This is {{ action }}</p>
 </body> 
 </html> 
