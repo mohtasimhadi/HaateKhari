@@ -6,6 +6,7 @@
     <title>Haate Khori</title>
     <link rel="stylesheet" href="{% static 'css/know_your_surroundings.css' %}">
     <link rel="stylesheet" href="{% static 'css/menubar.css' %}">
+    <link rel="stylesheet" href="{% static 'css/resultbar.css' %}">
 </head>
 <body>
 <div class="menubar">
@@ -28,11 +29,16 @@
         <a href="{% url 'add_image_know_you' %}"><img id="shape-level1" src="/static/img/add_image_know_you.png" width="300"></a>
         <a href="{% url 'know_you_learn' %}"><img id="shape-level1" src="/static/img/learn_image_know_you.png" width="300"></a>
     </div>
-    <img id="shape-back" src="/static/img/shape_line_img_background.png" width="900" height="500">
-    <img id="learn-shape-next-btn" src="/static/img/shape_learn_next_btn.png" width="70" height="70">
-    <img id="learn-shape-back-btn" src="/static/img/shape_learn_back_btn.png" width="70" height="70">
+    <img id="shape-back" src="{{ image }}" width="900" height="500">
+    <div class="resultbar">
+        <h1>
+            <font color="white">
+                &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; This Is Your {{ element }}
+                <a href="#news">Next</a>
+            </font>
+            
+        </h1>
+    </div>
 </div>
-
-<script src="/static/js/change_image_know_you.js"></script>
 </body>
 </html>

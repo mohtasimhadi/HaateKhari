@@ -3,10 +3,10 @@ import cv2
 
 def getCascade(action):
     switcher = {
-        'mouth': cv2.CascadeClassifier('knowYourself/CascadeFiles/haarcascade_mcs_mouth.xml'),
-        'nose': cv2.CascadeClassifier('knowYourself/CascadeFiles/haarcascade_mcs_nose.xml'),
-        'eye': cv2.CascadeClassifier('knowYourself/CascadeFiles/haarcascade_eye.xml'),
-        'frontalFace': cv2.CascadeClassifier('knowYourself/CascadeFiles/haarcascade_frontalface_default.xml'),
+        'Mouth': cv2.CascadeClassifier('knowYourself/CascadeFiles/haarcascade_mcs_mouth.xml'),
+        'Nose': cv2.CascadeClassifier('knowYourself/CascadeFiles/haarcascade_mcs_nose.xml'),
+        'Eye': cv2.CascadeClassifier('knowYourself/CascadeFiles/haarcascade_eye.xml'),
+        'Face': cv2.CascadeClassifier('knowYourself/CascadeFiles/haarcascade_frontalface_default.xml'),
     }
     return switcher.get(action, "nothing")
 
