@@ -1,7 +1,8 @@
 import os.path
 from django.shortcuts import render
 from django.http import HttpResponse 
-from django.shortcuts import render, redirect 
+from django.shortcuts import render, redirect
+from django.contrib import messages
 from .forms import *
 
 # Create your views here. 
@@ -12,7 +13,8 @@ def add_image_know_you(request):
         form = KnowYourSelfForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-            return redirect('know_you_learn')
+            messages.success(request, "Your photo updated successfully.")
+            return redirect('add_image_know_you')
     else:
         form = KnowYourSelfForm
     return render(request, 'add_image_know_you.html', {'form' : form})

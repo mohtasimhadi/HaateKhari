@@ -112,3 +112,10 @@ body {
     width: 320px;
     left: 14px;
 }
+
+#content{
+    padding: 20px;
+    background-color: greenyellow;
+    color: white;
+    margin-bottom: 15px;
+}

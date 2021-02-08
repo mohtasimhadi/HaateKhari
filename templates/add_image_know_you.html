@@ -29,10 +29,24 @@
         <a href="{% url 'know_you_learn' %}"><img id="shape-level1" src="/static/img/learn_image_know_you.png" width="300"></a>
     </div>
     <form method = "post" enctype="multipart/form-data">
+        <p><br><br><br><br><br><br></p>
         {% csrf_token %}
         {{ form.as_p }}
         <button type="submit">Upload</button>
     </form>
+    <div id="content">
+        <p><br><br><br><br><br><br><br><br><br><br><br><br></p>
+        {% include 'image_upload_message.html' %}
+        {% block content %}  {% endblock content %}
+    </div>
 </div>
+
+<script>
+    setTimeout(function(){
+        if($('#msg').length > 0){
+            $('#msg').remove();
+        }
+    }, 2000)
+</script>
 </body>
 </html>
