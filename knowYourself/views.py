@@ -12,7 +12,7 @@ def add_image_know_you(request):
         form = KnowYourSelfForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-            return redirect('know_you_quiz')
+            return redirect('know_you_learn')
     else:
         form = KnowYourSelfForm
     return render(request, 'add_image_know_you.html', {'form' : form})
@@ -28,4 +28,4 @@ def know_you_quiz(request):
         else:
             context = None
             action = None
-    return render(request, 'know_you_quiz.html', {'context' : context, 'action' : action})
+    return render(request, 'know_you_learn.html', {'context' : context, 'action' : action})

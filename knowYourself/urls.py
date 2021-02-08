@@ -7,7 +7,7 @@ from home import views
 
 urlpatterns = [
     path('add_image_know_you', add_image_know_you, name='image_upload'),
-    path('know_you_quiz', know_you_quiz, name='know_you_quiz'),
+    path('know_you_learn', know_you_quiz, name='know_you_learn'),
 ]
 
 if settings.DEBUG:
