@@ -2,13 +2,13 @@ from django.contrib import admin
 from django.urls import path
 from django.conf import settings
 from django.conf.urls.static import static
-from .views import *
+from .views import add_image_know_you
 from home import views
 
 urlpatterns = [
     path('add_image_know_you', add_image_know_you, name='image_upload'),
-    path('know_you_identify', know_you_identify, name='know_you_identify'),
-    path('know_you_learn', know_you_learn, name='know_you_learn'),
+    # path('know_you_identity', know_you_identity, name='know_you_identity'),
+    # path('know_you_learn', know_you_learn, name='know_you_learn'),
 ]
 
 if settings.DEBUG:

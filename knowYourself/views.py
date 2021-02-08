@@ -11,12 +11,13 @@ from .forms import *
 def add_image_know_you(request):
     if request.method == 'POST':
         form = KnowYourSelfForm(request.POST, request.FILES)
+        
         if form.is_valid():
             form.save()
             messages.success(request, "Your photo updated successfully.")
             return redirect('add_image_know_you')
     else:
-        form = KnowYourSelfForm
+        form = KnowYourSelfForm()
     return render(request, 'add_image_know_you.html', {'form' : form})
 
 
