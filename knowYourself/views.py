@@ -29,12 +29,17 @@ def add_image_know_you(request):
 
 
 def know_you_learn(request):
-    action = 'Nose'
     imagePath = 'media/knowYourself/imageDB/0.jpg'
-    resultPath = 'media/knowYourself/temp/result.jpg'
-    image = bodyPartDetection(cv2.resize(cv2.imread(imagePath), None, fx=0.5, fy=0.5, interpolation=cv2.INTER_AREA), action)
-    cv2.imwrite(resultPath, image)
-    return render(request, 'know_you_learn.html', {'image' : resultPath, 'element' : action})
+    resultPath = 'media/knowYourself/temp/'
+    image = bodyPartDetection(cv2.resize(cv2.imread(imagePath), None, fx=0.5, fy=0.5, interpolation=cv2.INTER_AREA), 'Face')
+    cv2.imwrite(resultPath+'Face.jpg', image)
+    image = bodyPartDetection(cv2.resize(cv2.imread(imagePath), None, fx=0.5, fy=0.5, interpolation=cv2.INTER_AREA), 'Nose')
+    cv2.imwrite(resultPath+'Nose.jpg', image)
+    image = bodyPartDetection(cv2.resize(cv2.imread(imagePath), None, fx=0.5, fy=0.5, interpolation=cv2.INTER_AREA), 'Eye')
+    cv2.imwrite(resultPath+'Eye.jpg', image)
+    image = bodyPartDetection(cv2.resize(cv2.imread(imagePath), None, fx=0.5, fy=0.5, interpolation=cv2.INTER_AREA), 'Mouth')
+    cv2.imwrite(resultPath+'Mouth.jpg', image)
+    return render(request, 'know_you_learn.html')
 
 
 def know_you_identity(request):

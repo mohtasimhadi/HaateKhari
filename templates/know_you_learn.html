@@ -6,7 +6,67 @@
     <title>Haate Khori</title>
     <link rel="stylesheet" href="{% static 'css/know_your_surroundings.css' %}">
     <link rel="stylesheet" href="{% static 'css/menubar.css' %}">
-    <link rel="stylesheet" href="{% static 'css/resultbar.css' %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial;
+}
+
+/* The grid: Four equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 15%;
+  padding: 10px;
+}
+
+/* Style the images inside the grid */
+.column img {
+  opacity: 0.8; 
+  cursor: pointer; 
+}
+
+.column img:hover {
+  opacity: 1;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* The expanding image container */
+.container {
+  position: relative;
+  display: none;
+}
+
+/* Expanding image text */
+#imgtext {
+  background-color: black;
+  position: absolute;
+  bottom: 0px;
+  left: 25%;
+  color: white;
+  font-size: 100px;
+}
+
+/* Closable button inside the expanded image */
+.closebtn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  color: white;
+  font-size: 35px;
+  cursor: pointer;
+}
+</style>
 </head>
 <body>
 <div class="menubar">
@@ -18,27 +78,42 @@
     <a href="{% url 'writing' %}">Learn To Write</a>
     <a href="{% url 'home' %}">Home</a>
 </div>
-
-<img id="label" src="/static/img/KnowYou.png" width="30%">
-<div class="main">
-    <div class="shape-level0">
-        <img id="sub-menu" src="/static/img/know_your_surroundings_shape_level0C.png" width="70%">
-        <img id="select-back" src="/static/img/know_your_surroundings_level0_black.png" width="300">
-        <img id="learn-select-active" src="/static/img/learn_option_active.png" width="140">
-        <a href="{% url 'know_you_identity' %}"><img id="identify-select" src="/static/img/identify_option.png" width="140"></a>
-        <a href="{% url 'add_image_know_you' %}"><img id="shape-level1" src="/static/img/add_image_know_you.png" width="300"></a>
-        <a href="{% url 'know_you_learn' %}"><img id="shape-level1" src="/static/img/learn_image_know_you.png" width="300"></a>
+<div style="text-align:center">
+  <div class="row">
+    <div class="column">
+        <h1><font color="white">Haate <font color="orange">Khori</font></h1>
     </div>
-    <img id="shape-back" src="{{ image }}" width="900" height="500">
-    <div class="resultbar">
-        <h1>
-            <font color="white">
-                &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; This Is Your {{ element }}
-                <a href="#news">Next</a>
-            </font>
-            
-        </h1>
+    <div class="column">
+      <img src="media/knowYourself/temp/Face.jpg" alt="This is your Face" style="width:100%" onclick="expandImage(this);">
     </div>
-</div>
+    <div class="column">
+      <img src="media/knowYourself/temp/Nose.jpg" alt="This is your Nose" style="width:100%" onclick="expandImage(this);">
+    </div>
+    <div class="column">
+      <img src="media/knowYourself/temp/Mouth.jpg" alt="This is your Mouth" style="width:100%" onclick="expandImage(this);">
+    </div>
+    <div class="column">
+      <img src="media/knowYourself/temp/Eye.jpg" alt="This is your Eye" style="width:100%" onclick="expandImage(this);">
+    </div>
+    <div class="column">
+        <h1>Click on the Images to Learn</h1>
+    </div>
+  </div>
+  
+  <div class="container">
+    <span onclick="this.parentElement.style.display='none'" class="closebtn">&times;</span>
+    <img id="expandedImg" style="width: 50%">
+    <div id="imgtext"></div>
+  </div>
+  
+  <script>
+  function expandImage(imgs) {
+    var expandImg = document.getElementById("expandedImg");
+    var imgText = document.getElementById("imgtext");
+    expandImg.src = imgs.src;
+    imgText.innerHTML = imgs.alt;
+    expandImg.parentElement.style.display = "block";
+  }
+  </script>
 </body>
 </html>
