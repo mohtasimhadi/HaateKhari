@@ -2,8 +2,11 @@ from django.shortcuts import render
 from django.http import HttpResponse 
 from django.shortcuts import render, redirect 
 from .forms import *
+from .models import *
   
 # Create your views here. 
+
+
 def add_image_know_you(request):
     if request.method == 'POST':
         form = KnowYourSelfForm(request.POST, request.FILES)
@@ -14,10 +17,6 @@ def add_image_know_you(request):
         form = KnowYourSelfForm
     return render(request, 'add_image_know_you.html', {'form' : form})
 
+
 def success(request):
-    return HttpResponse('Successfully uploaded')
- 
-# def view_image_know_you(request): 
-#     if request.method == 'GET':
-#         bodyPartDetection = bodyPartsDetection.objects.all()
-#     return render((request, 'know_you_quiz.html', {'know_you' : bodyPartDetection}))
+    return HttpResponse(act)

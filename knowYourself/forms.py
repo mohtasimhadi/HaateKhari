@@ -4,4 +4,4 @@ from .models import *
 class KnowYourSelfForm(forms.ModelForm):
     class Meta:
         model = bodyPartsDetection
-        fields = ['action', 'image']
+        fields = ['image']
