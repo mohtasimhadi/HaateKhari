@@ -1,3 +1,4 @@
+import base64
 import os.path
 from django.shortcuts import render
 from django.http import HttpResponse 
@@ -5,7 +6,11 @@ from django.shortcuts import render, redirect
 from django.contrib import messages
 from .forms import *
 
-# Create your views here. 
+# Create your views here.
+
+def test(request):
+    from .testFile import load_images_from_folder
+    return render(request, 'test.html', {'image' : load_images_from_folder})
 
 
 def add_image_know_you(request):
