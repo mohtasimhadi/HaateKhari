@@ -2,7 +2,6 @@ from django.shortcuts import render
 from django.http import HttpResponse 
 from django.shortcuts import render, redirect 
 from .forms import *
-from .models import *
   
 # Create your views here. 
 
@@ -19,4 +18,4 @@ def add_image_know_you(request):
 
 
 def success(request):
-    return HttpResponse(act)
+    return HttpResponse("done")
