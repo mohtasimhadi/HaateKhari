@@ -41,4 +41,4 @@ def know_you_identify(request):
         else:
             context = None
             action = None
-    return render(request, 'know_you_learn.html', {'context' : context, 'action' : action})
+    return render(request, 'know_you_identify.html', {'context' : context, 'action' : action})

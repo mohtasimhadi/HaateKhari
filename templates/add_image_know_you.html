@@ -1,36 +1,38 @@
 <!DOCTYPE html>
 {% load static %}
 <html lang="en">
-	<head>
-		<link rel="stylesheet" href="{% static 'css/know_you.css' %}">
-		<link rel="stylesheet" href="{% static 'css/menubar.css' %}">
-		<meta charset="UTF-8">
-		<title>Haate Khori</title>
-	</head>
+<head>
+    <meta charset="utf-8">
+    <title>Haate Khori</title>
+    <link rel="stylesheet" href="{% static 'css/know_your_surroundings.css' %}">
+    <link rel="stylesheet" href="{% static 'css/menubar.css' %}">
+</head>
 <body>
-	<div class="menubar">
-        <a href="{% url 'contact_us' %}">Contact Us</a>
-        <a href="{% url 'about' %}">About</a>
-        <a href="{% url 'my_profile' %}">My Profile</a>
-        <a class="active" href="#">Know You</a>
-        <a href="{% url 'surroundings' %}">Know Your Surroundings</a>
-        <a href="{% url 'writing' %}">Learn To Write</a>
-        <a href="{% url 'home' %}">Home</a>
+<div class="menubar">
+    <a href="{% url 'contact_us' %}">Contact Us</a>
+    <a href="{% url 'about' %}">About</a>
+    <a href="{% url 'my_profile' %}">My Profile</a>
+    <a class="active" href="#">Know You</a>
+    <a href="{% url 'surroundings' %}">Know Your Surroundings</a>
+    <a href="{% url 'writing' %}">Learn To Write</a>
+    <a href="{% url 'home' %}">Home</a>
+</div>
+
+<img id="label" src="/static/img/KnowYou.png" width="30%">
+<div class="main">
+    <div class="shape-level0">
+        <img id="sub-menu" src="/static/img/know_your_surroundings_shape_level0C.png" width="70%">
+        <img id="select-back" src="/static/img/know_your_surroundings_level0_black.png" width="300">
+        <img id="learn-select-active" src="/static/img/learn_option_active.png" width="140">
+        <a href="{% url 'know_you_identify' %}"><img id="identify-select" src="/static/img/identify_option.png" width="140"></a>
+        <a href="{% url 'add_image_know_you' %}"><img id="shape-level1" src="/static/img/add_image_know_you.png" width="300"></a>
+        <a href="{% url 'know_you_learn' %}"><img id="shape-level1" src="/static/img/learn_image_know_you.png" width="300"></a>
     </div>
-    <img id="label" src="/static/img/shape_level0_label.png" width="30%">
-    <div class="main">
-        <div id="shape-level0">
-            <img id="sub-menu" src="/static/img/know_you_level0.png" width="60%">
-            <img id="select-back" src="/static/img/know_your_surroundings_level0_black.png" width="300">
-            <img id="learn-select-active" src="/static/img/learn_option_active.png" width="140">
-            <a href="{% url 'surroundings_shape_level0_identify' %}"> <img id="identify-select" src="/static/img/identify_option.png" width="140"> </a>
-            <a href="{% url 'add_image_know_you' %}"><img id="add-image" src="/static/img/add_image_know_you.png" width="240"></a>
-            <a href="{% url 'know_you_level1' %}"><img id="level1-choice" src="/static/img/know_you_level1_choice.png" width="55%"></a>
-    </div>>
-	<form method = "post" enctype="multipart/form-data">
-		{% csrf_token %}
-		{{ form.as_p }}
-		<button type="submit">Upload</button>
-	</form>
+    <form method = "post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Upload</button>
+    </form>
+</div>
 </body>
 </html>
