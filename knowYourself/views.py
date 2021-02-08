@@ -14,6 +14,10 @@ def add_image_know_you(request):
         form = KnowYourSelfForm
     return render(request, 'add_image_know_you.html', {'form' : form})
 
+def success(request):
+    return HttpResponse('Successfully uploaded')
  
-def success(request): 
-    return HttpResponse('successfully uploaded')
+# def view_image_know_you(request): 
+#     if request.method == 'GET':
+#         bodyPartDetection = bodyPartsDetection.objects.all()
+#     return render((request, 'know_you_quiz.html', {'know_you' : bodyPartDetection}))
