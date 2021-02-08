@@ -34,7 +34,7 @@ def know_you_learn(request):
     return render(request, 'know_you_learn.html', {'context' : context, 'action' : action})
 
 
-def know_you_identify(request):
+def know_you_identity(request):
     actions = ['eye', 'nose', 'frontalFace', 'mouth']
     for i in range(4):
         context = "media/knowYourself/"+actions[i]+".jpg"
