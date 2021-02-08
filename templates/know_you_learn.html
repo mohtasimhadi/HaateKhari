@@ -1,18 +1,34 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
+{% load static %}
 <html lang="en"> 
-<head> 
-    <meta charset="UTF-8"> 
-    <title>HaateKhari</title> 
-  
-      <meta name="viewport" content="width=device-width, initial-scale=1"> 
-      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> 
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"> 
-      </script> 
-      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"> 
-      </script> 
+<head>
+    <link rel="stylesheet" href="{% static 'css/know_you.css' %}">
+    <link rel="stylesheet" href="{% static 'css/menubar.css' %}">
+    <meta charset="UTF-8">
+    <title>Haate Khori</title>
 </head> 
-<body> 
-    <img src="{{ context }}">
-    <p>This is {{ action }}</p>
-</body> 
-</html> 
+<body>
+    <div class="menubar">
+        <a href="{% url 'contact_us' %}">Contact Us</a>
+        <a href="{% url 'about' %}">About</a>
+        <a href="{% url 'my_profile' %}">My Profile</a>
+        <a class="active" href="#">Know You</a>
+        <a href="{% url 'surroundings' %}">Know Your Surroundings</a>
+        <a href="{% url 'writing' %}">Learn To Write</a>
+        <a href="{% url 'home' %}">Home</a>
+    </div>
+    <img id="label" src="/static/img/shape_level0_label.png" width="30%">
+    <div class="main">
+        <div id="shape-level0">
+            <img id="sub-menu" src="/static/img/know_you_level0.png" width="60%">
+            <img id="select-back" src="/static/img/know_your_surroundings_level0_black.png" width="300">
+            <img id="learn-select-active" src="/static/img/learn_option_active.png" width="140">
+            <a href="{% url 'surroundings_shape_level0_identify' %}"> <img id="identify-select" src="/static/img/identify_option.png" width="140"> </a>
+            <a href="{% url 'add_image_know_you' %}"><img id="add-image" src="/static/img/add_image_know_you.png" width="240"></a>
+            <a href="{% url 'know_you_level1' %}"><img id="level1-choice" src="/static/img/know_you_level1_choice.png" width="55%"></a>
+    </div>>
+    <img id="shape-back" src="{{ context }}" width="900" height="500">
+    <p><font color="white">This is {{ action }}</p>
+    <img id="shape-next-btn" src="/static/img/shape_learn_next_btn.png" width="70" height="70">
+</body>
+</html>
