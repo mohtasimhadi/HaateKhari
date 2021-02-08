@@ -1,8 +1,14 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-
+	<meta charset="UTF-8">
+	<title>Image Upload</title>
 </head>
 <body>
-<h1>Hello from add image know you</h1>
+	<form method = "post" enctype="multipart/form-data">
+		{% csrf_token %}
+		{{ form.as_p }}
+		<button type="submit">Upload</button>
+	</form>
 </body>
 </html>

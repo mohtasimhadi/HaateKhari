@@ -3,9 +3,11 @@ from django.urls import path
 from django.conf import settings
 from django.conf.urls.static import static
 from .views import *
+from home import views
 
 urlpatterns = [
-    path('image_upload', hotel_image_view, name='image_upload'),
+    path('add_image_know_you', add_image_know_you, name='image_upload'),
+    # path('image_upload', hotel_image_view, name='image_upload'),
     path('success', success, name = 'success'),
 ]
 

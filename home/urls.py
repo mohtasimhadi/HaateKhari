@@ -1,5 +1,6 @@
 from django.urls import path
 from . import views
+from knowYourself import views as knowYourself
 
 urlpatterns = [
             path("", views.index, name="index"),
@@ -21,7 +22,7 @@ urlpatterns = [
             path("bangla_number", views.bangla_number_level0, name="bangla_number"),
             path("writing_level1", views.writing_level1, name="writing_level1"),
             path("writing_level2", views.writing_level2, name="writing_level2"),
-            path("add_image_know_you", views.add_image_know_you, name="add_image_know_you"),
+            path("add_image_know_you", knowYourself.add_image_know_you, name="add_image_know_you"),
             path("know_you_level1", views.know_you_level1, name="know_you_level1"),
             path("anime", views.anime, name="anime"),
             path("writing", views.writing_level0, name="writing")

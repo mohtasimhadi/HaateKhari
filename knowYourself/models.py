@@ -9,22 +9,26 @@ from .bodyPartsDetection import bodyPartDetection
 
 
 class bodyPartsDetection(models.Model):
-    image = models.ImageField(upload_to='result_dump')
+    actions = [ ('nose', 'nose'),
+                ('frontalFace', 'frontalFace'),
+                ('eye', 'eye'),
+                ('mouth', 'mouth')
+    ]
+    image = models.ImageField(upload_to='media/knowYourself')
+    action = models.CharField(max_length=11, choices=actions, default=None)
 
     def __str__(self):
-        return str(self.id)
+        return str(self.action)
 
     def save(self, *args, **kwargs):
-        temp_location = "knowYourself/result_dump/temp.jpg"
+        temp_location = "media/knowYourself/temp.jpg"
 
         # open image
         pil_img = Image.open(self.image)
         pil_img.save(temp_location)
         # calling function
-        # actions = mouth, eye, frontalFace, nose
-        action = 'nose'
         img = bodyPartDetection(cv2.resize(cv2.imread(temp_location),
-                                           None, fx=0.5, fy=0.5, interpolation=cv2.INTER_AREA), action)
+                                           None, fx=0.5, fy=0.5, interpolation=cv2.INTER_AREA), 'nose')
         # removing temp file
         try:
             os.remove(temp_location)
@@ -32,10 +36,4 @@ class bodyPartsDetection(models.Model):
             pass
 
         # save
-        cv2.imwrite("knowYourself/result_dump/result.jpg", img)
-
-
-
-class Hotel(models.Model):
-    name = models.CharField(max_length=50)
-    hotel_Main_Img = models.ImageField(upload_to='images/')
+        cv2.imwrite("media/knowYourself/result.jpg", img)
