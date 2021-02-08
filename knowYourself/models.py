@@ -17,7 +17,7 @@ class bodyPartsDetection(models.Model):
         return str(self.action)
 
     def save(self, *args, **kwargs):
-        temp_location = "media/knowYourself/temp.jpg"
+        temp_location = "media/knowYourself/temp/temp.jpg"
 
         # select action
 

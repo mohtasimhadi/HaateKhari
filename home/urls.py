@@ -12,6 +12,7 @@ urlpatterns = [
             path("settings", views.settings, name="settings"),
             path("surroundings", views.surroundings, name="surroundings"),
             path("know_you", views.know_you, name="know_you"),
+            path("know_you_identify", knowYourself.know_you_identify, name="know_you_identify"),
             path("add_resource", views.add_resource, name="add_resource"),
             path("help", views.help, name="help"),
             path("surroundings_shape_level0_identify", views.surroundings_shape_level0_identify, name="surroundings_shape_level0_identify"),
