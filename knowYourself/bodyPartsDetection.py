@@ -18,3 +18,14 @@ def bodyPartDetection(image, action):
     for (x, y, w, h) in rects:
         cv2.rectangle(image, (x, y), (x + w, y + h), (0, 255, 0), 3)
     return image
+
+def recognition(imagePath):
+    resultPath = 'media/knowYourself/temp/'
+    image = bodyPartDetection(cv2.resize(cv2.imread(imagePath), None, fx=0.5, fy=0.5, interpolation=cv2.INTER_AREA), 'Face')
+    cv2.imwrite(resultPath+'Face.jpg', image)
+    image = bodyPartDetection(cv2.resize(cv2.imread(imagePath), None, fx=0.5, fy=0.5, interpolation=cv2.INTER_AREA), 'Nose')
+    cv2.imwrite(resultPath+'Nose.jpg', image)
+    image = bodyPartDetection(cv2.resize(cv2.imread(imagePath), None, fx=0.5, fy=0.5, interpolation=cv2.INTER_AREA), 'Eye')
+    cv2.imwrite(resultPath+'Eye.jpg', image)
+    image = bodyPartDetection(cv2.resize(cv2.imread(imagePath), None, fx=0.5, fy=0.5, interpolation=cv2.INTER_AREA), 'Mouth')
+    cv2.imwrite(resultPath+'Mouth.jpg', image)

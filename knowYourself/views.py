@@ -6,7 +6,7 @@ from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from .forms import *
-from .bodyPartsDetection import bodyPartDetection
+from .bodyPartsDetection import recognition
 
 # Create your views here.
 
@@ -37,27 +37,13 @@ def add_image_know_you(request):
 
 
 def know_you_learn(request):
-    imagePath = 'media/knowYourself/imageDB/0.jpg'
-    resultPath = 'media/knowYourself/temp/'
-    image = bodyPartDetection(cv2.resize(cv2.imread(imagePath), None, fx=0.5, fy=0.5, interpolation=cv2.INTER_AREA), 'Face')
-    cv2.imwrite(resultPath+'Face.jpg', image)
-    image = bodyPartDetection(cv2.resize(cv2.imread(imagePath), None, fx=0.5, fy=0.5, interpolation=cv2.INTER_AREA), 'Nose')
-    cv2.imwrite(resultPath+'Nose.jpg', image)
-    image = bodyPartDetection(cv2.resize(cv2.imread(imagePath), None, fx=0.5, fy=0.5, interpolation=cv2.INTER_AREA), 'Eye')
-    cv2.imwrite(resultPath+'Eye.jpg', image)
-    image = bodyPartDetection(cv2.resize(cv2.imread(imagePath), None, fx=0.5, fy=0.5, interpolation=cv2.INTER_AREA), 'Mouth')
-    cv2.imwrite(resultPath+'Mouth.jpg', image)
+    imagePath = 'media/knowYourself/imageDB/2.jpg'
+    recognition(imagePath)
     return render(request, 'know_you_learn.html')
 
 
+
 def know_you_identity(request):
-    actions = ['eye', 'nose', 'frontalFace', 'mouth']
-    for i in range(4):
-        context = "media/knowYourself/"+actions[i]+".jpg"
-        action = actions[i]
-        if os.path.exists(context):
-            break
-        else:
-            context = None
-            action = None
-    return render(request, 'know_you_identity.html', {'context' : context, 'action' : action})
+    imagePath = 'media/knowYourself/imageDB/2.jpg'
+    recognition(imagePath)
+    return render(request, 'know_you_identity.html')

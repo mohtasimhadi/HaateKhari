@@ -14,3 +14,7 @@ btnCngLearnBack.addEventListener('click' , ()=>{
   shapeImageLearnCount--;
   img.src = '/media/knowYourself/imageDB/'+shapeImageLearnCount+'.jpg';
 })
+
+function path(){
+  return '/media/knowYourself/imageDB/'+shapeImageLearnCount+'.jpg'
+}

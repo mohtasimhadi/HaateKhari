@@ -26,7 +26,11 @@
         <img id="learn-select-active" src="/static/img/learn_option_active.png" width="140">
         <a href="{% url 'know_you_identity' %}"><img id="identify-select" src="/static/img/identify_option.png" width="140"></a>
         <a href="{% url 'add_image_know_you' %}"><img id="shape-level1" src="/static/img/add_image_know_you.png" width="300"></a>
-        <a href="{% url 'know_you_learn' %}"><img id="shape-level1" src="/static/img/learn_image_know_you.png" width="300"></a>
+        <form method = "post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <input type="hidden" name="path" value="path();"/>
+            <a href="{% url 'know_you_learn' %}"><img id="shape-level1" src="/static/img/learn_image_know_you.png" width="300"></a>
+        </form>
     </div>
     <img id="shape-back" width="900" height="500">
     <img id="learn-shape-next-btn" src="/static/img/shape_learn_next_btn.png" width="70" height="70">
