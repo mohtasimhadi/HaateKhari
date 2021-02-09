@@ -5,14 +5,11 @@
 
 <h1>My First Web Page</h1>
 <p>My first paragraph.</p>
-<img src="{{ image }}">
-<script>
-    var data = JSON.parse("{{image}}")
-    document.write(data)
-    function myFuction(data){
-        document.write(data);
-    }
-</script>
-
+<form method = "post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="hidden" name="path" value="2" />
+    <button type="submit">Upload</button>
+</form>
 </body>
 </html>

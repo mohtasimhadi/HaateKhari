@@ -11,8 +11,16 @@ from .bodyPartsDetection import bodyPartDetection
 # Create your views here.
 
 def test(request):
-    from .testFile import load_images_from_folder
-    return render(request, 'test.html', {'image' : load_images_from_folder})
+    if request.method == 'POST':
+        try:
+            form = request.POST['path']
+            return HttpResponse('lel')
+        except:
+            return render(request, 'test.html')
+    return render(request, 'test.html')
+
+def success(request):
+    return HttpResponse("success")
 
 def know_you(request):
     return render(request, 'know_you.html')

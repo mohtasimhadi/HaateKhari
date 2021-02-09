@@ -11,3 +11,6 @@ from .bodyPartsDetection import bodyPartDetection
 
 class bodyPartDetection(models.Model):
     image = models.ImageField(upload_to='knowYourself/imageDB')
+
+class test(models.Model):
+    path = models.CharField(max_length=50)
