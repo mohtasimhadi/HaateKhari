@@ -1,6 +1,6 @@
 import cv2
 from os import path
-
+from .bodyPartsDetection import recognition
 
 def load_images_from_folder():
     folder = '/media/knowYourself/imageDB/'
