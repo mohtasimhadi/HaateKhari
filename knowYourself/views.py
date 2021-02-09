@@ -54,6 +54,12 @@ def know_you_identity(request):
     return render(request, 'know_you_identity.html')
 
 def know_you_quiz(request):
-    imagePath = "media/knowYourself/imageDB/2.jpg"
-    recognition(imagePath)
+    if request.method == 'POST':
+        try:
+            form = request.POST['path']
+            # print("media/knowYourself/imageDB/"+form+".jpg")
+            recognition("media/knowYourself/imageDB/"+form+".jpg")
+            return render(request, 'know_you_quiz.html')
+        except:
+            pass
     return render(request, 'know_you_quiz.html')
