@@ -19,9 +19,6 @@ def test(request):
             return render(request, 'test.html')
     return render(request, 'test.html')
 
-def success(request):
-    return HttpResponse("success")
-
 def know_you(request):
     return render(request, 'know_you.html')
 
