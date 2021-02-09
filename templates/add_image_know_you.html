@@ -6,6 +6,19 @@
     <title>Haate Khori</title>
     <link rel="stylesheet" href="{% static 'css/know_your_surroundings.css' %}">
     <link rel="stylesheet" href="{% static 'css/menubar.css' %}">
+    <style>
+        .column {
+            float: left;
+            width: 15%;
+            font-size: x-large;
+            padding: 10px;
+        }
+        .row {
+            content: "";
+            display: table;
+            clear: both;
+        }
+    </style>
 </head>
 <body>
 <div class="menubar">
@@ -26,27 +39,29 @@
         <img id="learn-select-active" src="/static/img/learn_option_active.png" width="140">
         <a href="{% url 'know_you_identity' %}"><img id="identify-select" src="/static/img/identify_option.png" width="140"></a>
         <a href="{% url 'add_image_know_you' %}"><img id="shape-level1" src="/static/img/add_image_know_you.png" width="300"></a>
-        <a href="{% url 'know_you_learn' %}"><img id="shape-level1" src="/static/img/learn_image_know_you.png" width="300"></a>
+        <a href="{% url 'know_you_learn' %}"><img id="shape-level1" src="/static/img/learn_from_here.png" width="300"></a>
     </div>
-    <form method = "post" enctype="multipart/form-data">
-        <p><br><br><br><br><br><br></p>
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Upload</button>
-    </form>
-    <div id="content">
-        <p><br><br><br><br><br><br><br><br><br><br><br><br></p>
-        {% include 'image_upload_message.html' %}
-        {% block content %}  {% endblock content %}
+    <div class="column">
+        <div class="row">
+            <form method = "post" enctype="multipart/form-data">
+                <p><br><br><br><br><br><br></p>
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit">Upload</button>
+            </form>
+            {% if messages %}
+                {% for message in messages %}
+                    <script>
+                        alert("{{message.tags}}");
+                    </script>    
+                <!-- <div class="alert {{ message.tags }} m-2" id="msg" role="alert">
+                        <font color="white">{{ message }}</font>
+                    </div> -->
+                {% endfor %}
+            {% endif %}
+            {% block content %}  {% endblock content %}
+        </div>
     </div>
 </div>
-
-<script>
-    setTimeout(function(){
-        if($('#msg').length > 0){
-            $('#msg').remove();
-        }
-    }, 2000)
-</script>
 </body>
 </html>
