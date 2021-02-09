@@ -15,8 +15,6 @@ def test(request):
     return render(request, 'test.html', {'image' : load_images_from_folder})
 
 def know_you(request):
-    # list = os.listdir("/media/knowYourself/imageDB")
-    # number_files = len(list)
     return render(request, 'know_you.html')
 
 
