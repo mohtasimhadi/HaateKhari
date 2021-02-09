@@ -9,8 +9,9 @@ from .bodyPartsDetection import bodyPartDetection
 
 # Create your models here.
 
-class bodyPartDetection(models.Model):
-    image = models.ImageField(upload_to='knowYourself/imageDB')
+class BodyPartDetection(models.Model):
+    image = models.ImageField(upload_to='knowYourself/temp/uploads')
+
 
 class test(models.Model):
     path = models.CharField(max_length=50)

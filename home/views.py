@@ -1,5 +1,6 @@
 from django.shortcuts import render
 
+
 # Create your views here.
 
 def index(request):
@@ -15,23 +16,23 @@ def home(request):
 
 
 def my_profile(request):
-    return render(request,'my_profile.html')
+    return render(request, 'my_profile.html')
 
 
 def contact_us(request):
-    return render(request,'contact_us.html')
+    return render(request, 'contact_us.html')
 
 
 def settings(request):
-    return render(request,'settings.html')
+    return render(request, 'settings.html')
 
 
 def help(request):
-    return render(request,'help.html')
+    return render(request, 'help.html')
 
 
 def infouser(request):
-    return render(request,'info_user.html')
+    return render(request, 'info_user.html')
 
 
 def writing_level0(request):
@@ -52,7 +53,6 @@ def know_you_level1(request):
 
 def surroundings(request):
     return render(request, 'know_your_surroundings.html')
-
 
 
 def add_resource(request):
