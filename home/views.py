@@ -54,9 +54,6 @@ def surroundings(request):
     return render(request, 'know_your_surroundings.html')
 
 
-def know_you(request):
-    return render(request, 'know_you.html')
-
 
 def add_resource(request):
     return render(request, 'add_resource.html')

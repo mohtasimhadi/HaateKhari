@@ -14,6 +14,11 @@ def test(request):
     from .testFile import load_images_from_folder
     return render(request, 'test.html', {'image' : load_images_from_folder})
 
+def know_you(request):
+    # list = os.listdir("/media/knowYourself/imageDB")
+    # number_files = len(list)
+    return render(request, 'know_you.html')
+
 
 def add_image_know_you(request):
     if request.method == 'POST':
