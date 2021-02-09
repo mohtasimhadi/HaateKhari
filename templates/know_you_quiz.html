@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Haate Khori</title>
+    <link rel="stylesheet" href="{% static 'css/know_your_surroundings.css' %}">
+    <link rel="stylesheet" href="{% static 'css/menubar.css' %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial;
+}
+
+/* The grid: Four equal columns that floats next to each other */
+.column {
+    float: left;
+    width: 15%;
+    font-size: x-large;
+    padding: 10px;
+}
+
+/* Style the images inside the grid */
+.column img {
+    opacity: 0.8; 
+    cursor: pointer; 
+}
+
+.column img:hover {
+  opacity: 1;
+}
+
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* The expanding image container */
+.container {
+    position: relative;
+    display: none;
+}
+
+/* Expanding image text */
+
+#imgtext {
+    background-color: black;
+    position: absolute;
+    bottom: 0px;
+    left: 25%;
+    color: white;
+    font-size: 100px;
+}
+
+/* Closable button inside the expanded image */
+.closebtn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    color: white;
+    font-size: 35px;
+    cursor: pointer;
+}
+</style>
+</head>
+<body>
+<div class="menubar">
+    <a href="{% url 'contact_us' %}">Contact Us</a>
+    <a href="{% url 'about' %}">About</a>
+    <a href="{% url 'my_profile' %}">My Profile</a>
+    <a class="active" href="#">Know You</a>
+    <a href="{% url 'surroundings' %}">Know Your Surroundings</a>
+    <a href="{% url 'writing' %}">Learn To Write</a>
+    <a href="{% url 'home' %}">Home</a>
+</div>
+<div style="text-align:center">
+  <div class="row">
+    <div class="column">
+        <h2><font color="white">Haate <font color="orange">Khori</font></h2>
+    </div>
+  </div>
+  <div class="row">
+    <div class="column">
+        <img src="static/img/startQuiz.jpg" alt="nose" style="width:100%" onclick="question(this);">
+        <div id="question"></div>
+    </div>
+  </div>
+  <section id="img">
+  <div class="row">
+    <div class="column">
+      <img id="face" src="media/knowYourself/temp/Face.jpg" style="width:100%" onclick="expandImage(this);">
+    </div>
+    <div class="column">
+      <img id="nose" src="media/knowYourself/temp/Nose.jpg" style="width:100%" onclick="expandImage(this);">
+    </div>
+  </div>
+  <div class="row">
+    <div class="column">
+        <img id="mouth" src="media/knowYourself/temp/Mouth.jpg" style="width:100%" onclick="expandImage(this);">
+      </div>
+      <div class="column">
+        <img id="eye" src="media/knowYourself/temp/Eye.jpg" style="width:100%" onclick="expandImage(this);">
+      </div>
+  </div>
+</section>
+  
+  <div class="container">
+    <span onclick="this.parentElement.style.display='none'" class="closebtn">&times;</span>
+    <img id="expandedImg" style="width: 30%">
+    <div id="imgtext"></div>
+  </div>
+  
+  <script>
+  function expandImage(imgs) {
+    var expandImg = document.getElementById("expandedImg");
+    var imgText = document.getElementById("imgtext");
+    expandImg.src = "static/img/quiz.jpg";
+    imgText.innerHTML = imgs.alt;
+    expandImg.parentElement.style.display = "block";
+  }
+  function question(btn){
+      var ques = document.getElementById("question");
+      var nose = document.getElementById("nose");
+      var face = document.getElementById("face");
+      var mouth = document.getElementById("mouth");
+      var eye = document.getElementById("eye");
+      var imgText = document.getElementById("imgtext");
+      imgText.innerHTML = "";
+
+      if (btn.alt=="nose"){
+        ques.innerHTML = "Where is your nose?";
+        btn.src="static/img/nextQuiz.jpg";
+        nose.alt = "Yes, This is your Nose";
+        face.alt = "No, This is not your Nose";
+        eye.alt = "No, This is not your Nose";
+        mouth.alt = "No, This is not your Nose";
+        btn.alt = "face"
+      }
+      else if (btn.alt == "face"){
+        ques.innerHTML = "Where is your Face?";
+        btn.src="static/img/nextQuiz.jpg";
+        nose.alt = "No, This is not your Face";
+        face.alt = "Yes, This is your Face";
+        eye.alt = "No, This is not your Face";
+        mouth.alt = "No, This is not your Face";
+        btn.alt = "mouth"
+      }
+      else if (btn.alt == "mouth"){
+        ques.innerHTML = "Where is your mouth?";
+        btn.src="static/img/nextQuiz.jpg";
+        nose.alt = "No, This is not your not Mouth";
+        face.alt = "No, This is not your Mouth";
+        eye.alt = "No, This is not your Mouth";
+        mouth.alt = "Yes, This is your Mouth";
+        btn.alt = "eye"
+      }
+      else if (btn.alt == "eye"){
+        ques.innerHTML = "Where is your eye?";
+        btn.src=null;
+        nose.alt = "No, This is not your Eye";
+        face.alt = "No, This is not your Eye";
+        eye.alt = "Yes, This is your Eye";
+        mouth.alt = "No, This is not your Eye";
+      }
+  }
+  </script>
+</body>
+</html>

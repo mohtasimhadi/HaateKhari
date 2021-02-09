@@ -46,3 +46,6 @@ def know_you_identity(request):
     imagePath = 'media/knowYourself/imageDB/2.jpg'
     recognition(imagePath)
     return render(request, 'know_you_identity.html')
+
+def know_you_quiz(request):
+    return render(request, 'know_you_quiz.html')
